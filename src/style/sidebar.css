@@ -1,0 +1,29 @@
+.profile-card-container {
+  padding: 20px 15px;
+}
+
+.profile-card-container .profile-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 700px;
+}
+
+.profile-card-container .profile-card figure .avatar img {
+  max-width: 300px;
+  border-radius: 50%;
+}
+
+.profile-card-container .profile-card figure .full-name {
+  padding: 15px 0;
+}
+/*# sourceMappingURL=sidebar.css.map */

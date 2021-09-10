@@ -1,0 +1,114 @@
+.repos-container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.repos-container .repobar {
+  width: 100%;
+}
+
+.repos-container .repobar .repo {
+  display: inline-block;
+  width: 100%;
+  padding: 25px 0;
+  border-bottom: solid 1px #cfcfcf;
+}
+
+.repos-container .repobar .repo .project-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #57606a;
+}
+
+.repos-container .repobar .repo .project-bar .project-name {
+  color: #0969da;
+}
+
+.repos-container .repobar .repo .project-bar .project-name:hover {
+  text-decoration: underline;
+}
+
+.repos-container .repobar .repo .project-bar span {
+  margin-left: 8px;
+  border: solid 1px #cfcfcf;
+  border-radius: 20px;
+  padding: 0 7px;
+  font-size: 12px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.repos-container .repobar .repo :nth-of-type(2) {
+  margin-bottom: 2px;
+  color: #57606a;
+}
+
+.repos-container .repobar .repo :nth-of-type(3) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3px 0;
+}
+
+.repos-container .repobar .repo :nth-of-type(3) a {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 3px 0;
+  margin-right: 3px;
+  padding: 3px 10px;
+  background-color: #ddf4ff;
+  border-radius: 20px;
+  color: #0969da;
+}
+
+.repos-container .repobar .repo :nth-of-type(3) a:hover {
+  background-color: #0969da;
+  color: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.repos-container .repobar .repo div:last-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #57606a;
+}
+
+.repos-container .repobar .repo div:last-of-type span {
+  margin-right: 16px;
+}
+
+.repos-container .repobar .repo div:last-of-type a {
+  margin-right: 16px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  color: #57606a;
+}
+
+.repos-container .repobar .repo div:last-of-type a:hover {
+  color: #0969da;
+}
+
+.repos-container .repobar .repo div:last-of-type a > svg {
+  font-size: 14px;
+}
+/*# sourceMappingURL=repos.css.map */

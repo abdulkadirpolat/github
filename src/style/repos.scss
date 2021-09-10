@@ -1,0 +1,95 @@
+$g1: rgb(87, 96, 106);
+$g2: solid 1px rgb(207, 207, 207);
+.repos-container {
+  width: 100%;
+  padding: 0 15px;
+
+  .repobar {
+    width: 100%;
+
+    .repo {
+      display: inline-block;
+      width: 100%;
+      padding: 25px 0;
+      border-bottom: $g2;
+      .project-bar {
+        display: flex;
+        margin-bottom: 4px;
+        font-size: 20px;
+        font-weight: 600;
+        color: $g1;
+
+        .project-name {
+          color: rgb(9, 105, 218);
+        }
+        .project-name:hover {
+          text-decoration: underline;
+        }
+
+        span {
+          margin-left: 8px;
+          border: $g2;
+          border-radius: 20px;
+          padding: 0 7px;
+          font-size: 12px;
+          align-self: center;
+        }
+      }
+
+      :nth-of-type(2) {
+        margin-bottom: 2px;
+        color: $g1;
+      }
+
+      :nth-of-type(3) {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 3px 0;
+
+        a {
+          font-size: 13px;
+          font-weight: 600;
+          margin: 3px 0;
+          margin-right: 3px;
+          padding: 3px 10px;
+          background-color: rgb(221, 244, 255);
+          border-radius: 20px;
+          color: rgb(9, 105, 218);
+        }
+        a:hover {
+          background-color: rgb(9, 105, 218);
+          color: white;
+          user-select: none;
+        }
+      }
+
+      div:last-of-type {
+        display: flex;
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: $g1;
+
+        span {
+          margin-right: 16px;
+        }
+
+        a {
+          margin-right: 16px;
+          user-select: none;
+          cursor: pointer;
+          color: $g1;
+        }
+
+        a:hover {
+          color: rgb(9, 105, 218);
+        }
+
+        a > svg {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

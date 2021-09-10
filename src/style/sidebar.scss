@@ -1,0 +1,47 @@
+.profile-card-container {
+  padding: 20px 15px;
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 250px;
+    max-width: 300px;
+    min-height: 700px;
+
+    figure {
+      .avatar {
+        // transition: all 300ms ease-out;
+
+        img {
+          max-width: 300px;
+          border-radius: 50%;
+        }
+      }
+
+      // .avatar:hover {
+
+      //   transform: scale(1.03);
+      // }
+
+      .full-name {
+        padding: 15px 0;
+      }
+    }
+  }
+
+  // @media (prefers-reduced-motion: no-preference) {
+  //   img {
+  //     animation: App-logo-spin infinite 10s linear;
+  //   }
+  // }
+
+  // @keyframes App-logo-spin {
+  //   from {
+  //     transform: rotate(-90deg);
+  //   }
+  //   to {
+  //     transform: rotate(90deg);
+  //   }
+  // }
+}
