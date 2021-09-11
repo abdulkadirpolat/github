@@ -1,5 +1,6 @@
 .profile-card-container {
   padding: 20px 15px;
+  max-height: 800px;
 }
 
 .profile-card-container .profile-card {
@@ -15,7 +16,7 @@
           justify-content: space-between;
   min-width: 250px;
   max-width: 300px;
-  min-height: 700px;
+  min-height: 500px;
 }
 
 .profile-card-container .profile-card figure .avatar img {
@@ -25,5 +26,67 @@
 
 .profile-card-container .profile-card figure .full-name {
   padding: 15px 0;
+  line-height: 1;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.profile-card-container .profile-card figure .full-name :last-child {
+  font-size: 20px;
+  color: #57606a;
+  font-weight: 300;
+}
+
+.profile-card-container .profile-card .profile-edit .bio {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.profile-card-container .profile-card .profile-edit .card-detail {
+  margin-top: 16px;
+}
+
+.profile-card-container .profile-card .profile-edit .card-detail ul > li > svg {
+  margin-right: 5px;
+}
+
+.profile-card-container .profile-card .organizations {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: solid 1px #cfcfcf;
+}
+
+.profile-card-container .profile-card .organizations h4 {
+  margin-bottom: 8px;
+}
+
+.profile-card-container .profile-card .organizations .organization {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-card-container .profile-card .organizations .organization > div {
+  height: 32px;
+  width: 32px;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  border-radius: 6px;
+  border: solid 1px #cfcfcf;
+  overflow: hidden;
+}
+
+.profile-card-container .profile-card .organizations .organization > div img {
+  max-width: 32px;
+  max-height: 32px;
+  background-repeat: no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 /*# sourceMappingURL=sidebar.css.map */
