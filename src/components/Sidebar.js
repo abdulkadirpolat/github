@@ -21,6 +21,7 @@ function Sidebar({ githubUsersOwner, githubUsersOrgs }) {
           <div className="bio">{githubUsersOwner.bio}</div>
           <div>
             <span>
+              {/* {githubUsersOwner.followers.length <=999 ? githubUsersOwner.followers :Number.parseFloat(githubUsersOwner.followers).toFixed(2) } {` followers .`} */}
               {githubUsersOwner.followers} {` followers .`}
             </span>
             <span>
@@ -45,21 +46,29 @@ function Sidebar({ githubUsersOwner, githubUsersOrgs }) {
           </div>
         </div>
         <div className="organizations">
-          <h4>Organizations</h4>
+          <h4> {githubUsersOrgs.length == 0 ? null : "Organizations"} </h4>
           <div className="organization">
-            {githubUsersOrgs.map((orgs) => (
-              <div key={orgs.id} title={orgs.login}>
-                <img src={orgs.avatar_url} alt={orgs.description} />
-              </div>
-            ))}
+            {githubUsersOrgs.length == 0
+              ? null
+              : githubUsersOrgs.map((orgs) => (
+                  <div key={orgs.id} title={orgs.login}>
+                    <img src={orgs.avatar_url} alt={orgs.description} />
+                  </div>
+                ))}
           </div>
           <div>
             <div>
               {"updated at "}
+              {/* {githubUsersOwner.updated_at == undefined
+                ? async () => await githubUsersOwner.updated_at.slice(0, 10)
+                : githubUsersOwner.updated_at.slice(0, 10)} */}
               {githubUsersOwner.updated_at}
             </div>
             <div>
               {"created at "}
+              {/* {githubUsersOwner.created_at == undefined
+                ? async () => await githubUsersOwner.created_at.slice(0, 10)
+                : githubUsersOwner.created_at.slice(0, 10)} */}
               {githubUsersOwner.created_at}
             </div>
           </div>

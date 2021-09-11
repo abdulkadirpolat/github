@@ -1,3 +1,5 @@
+@import "media-query";
+
 * {
   padding: 0;
   margin: 0;
@@ -16,8 +18,22 @@ body {
 .container {
   max-width: 1280px;
   margin: 0 auto;
+  @include responsive(desktop) {
+    max-width: 1200px;
+  }
+  @include responsive(laptop) {
+    max-width: 900px;
+  }
+  @include responsive(tablet) {
+    max-width: 750px;
+  }
 
   .components {
     display: flex;
+
+    @include responsive(tablet) {
+      align-items: center;
+      flex-direction: column;
+    }
   }
 }

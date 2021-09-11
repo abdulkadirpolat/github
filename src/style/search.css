@@ -12,6 +12,12 @@
   border: solid #cfcfcf 1.5px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .repos-search #repository {
+    width: 100%;
+  }
+}
+
 .repos-search #repository:focus {
   border: 1.5px solid blue;
   -webkit-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;

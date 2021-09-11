@@ -1,3 +1,5 @@
+@import "./media-query";
+
 .repos-search {
   padding: 20px 0;
   outline: none;
@@ -8,6 +10,9 @@
     border-radius: 7px;
     outline: none;
     border: solid rgb(207, 207, 207) 1.5px;
+    @include responsive(laptop) {
+      width: 100%;
+    }
   }
   #repository:focus {
     border: 1.5px solid blue;

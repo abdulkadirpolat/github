@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./style/app.css";
 import Repos from "./components/Repos";
 import Sidebar from "./components/Sidebar";
 import "axios";
@@ -10,8 +11,9 @@ function App() {
   const [githubOrgs, setGithubOrgs] = useState([]);
   const [searchChange, setSearchChange] = useState("");
 
-  const user = "korayguler";
-  console.log(githubUser);
+  const user = "abdulkadirpolat";
+ //      gaearon
+ //     yavuzim
   useEffect(() => {
     document.title = user;
     const githubUsers = async () => {
@@ -42,7 +44,7 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="container">
         <div className="components">
           <Sidebar githubUsersOwner={githubUser} githubUsersOrgs={githubOrgs} />
