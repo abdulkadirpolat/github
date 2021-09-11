@@ -1,13 +1,17 @@
+$g1: rgb(87, 96, 106);
+$g2: solid 1px rgb(207, 207, 207);
+$f1: 14px;
+
 .profile-card-container {
   padding: 20px 15px;
-
+  max-height: 800px;
   .profile-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-width: 250px;
     max-width: 300px;
-    min-height: 700px;
+    min-height: 500px;
 
     figure {
       .avatar {
@@ -19,29 +23,63 @@
         }
       }
 
-      // .avatar:hover {
-
-      //   transform: scale(1.03);
-      // }
-
       .full-name {
         padding: 15px 0;
+        line-height: 1;
+        font-size: 26px;
+        font-weight: 600;
+
+        :last-child {
+          font-size: 20px;
+          color: $g1;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .profile-edit {
+      .bio {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+      .card-detail {
+        margin-top: 16px;
+        ul > li > svg {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .organizations {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: $g2;
+
+      h4 {
+        margin-bottom: 8px;
+      }
+      .organization {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .organization > div {
+        height: 32px;
+        width: 32px;
+        margin-bottom: 3px;
+        margin-right: 3px;
+        border-radius: 6px;
+        border: $g2;
+        overflow: hidden;
+
+        img {
+          max-width: 32px;
+          max-height: 32px;
+          background-repeat: no-repeat;
+          object-fit: cover;
+          object-position: center;
+        }
       }
     }
   }
-
-  // @media (prefers-reduced-motion: no-preference) {
-  //   img {
-  //     animation: App-logo-spin infinite 10s linear;
-  //   }
-  // }
-
-  // @keyframes App-logo-spin {
-  //   from {
-  //     transform: rotate(-90deg);
-  //   }
-  //   to {
-  //     transform: rotate(90deg);
-  //   }
-  // }
 }
