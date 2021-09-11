@@ -5,26 +5,49 @@ import "axios";
 import "./style/app.css";
 import axios from "axios";
 function App() {
-  const [github, setGithub] = useState([]);
+  const [github, setGithubRepos] = useState([]);
+  const [githubUser, setGithubUser] = useState([]);
+  const [githubOrgs, setGithubOrgs] = useState([]);
+  const [searchChange, setSearchChange] = useState("");
 
+  const user = "korayguler";
+  console.log(githubUser);
   useEffect(() => {
+    document.title = user;
     const githubUsers = async () => {
-      const response = await axios.get(
-        "https://api.github.com/users/korayguler/repos"
+      const responseRepos = await axios.get(
+        `https://api.github.com/users/${user}/repos?page=1&per_page=100`
       );
-      setGithub( response.data);
-       
+
+      const responseUser = await axios.get(
+        `https://api.github.com/users/${user}`
+      );
+
+      const responseOrgs = await axios.get(
+        `https://api.github.com/users/${user}/orgs`
+      );
+      setGithubRepos(responseRepos.data);
+      setGithubUser(responseUser.data);
+      setGithubOrgs(responseOrgs.data);
     };
     githubUsers();
   }, []);
- 
+
+  const search = (e) => {
+    setSearchChange(e.target.value.trim().toLowerCase());
+  };
+
+  let filterMov = github.filter(
+    (repos) => repos.name.toLowerCase().indexOf(searchChange) !== -1
+  );
+
   return (
     <div className="App">
       <div className="container">
         <div className="components">
-          <Sidebar githubUsersOwner={github} />
+          <Sidebar githubUsersOwner={githubUser} githubUsersOrgs={githubOrgs} />
 
-          <Repos githubUsersData={github } />
+          <Repos reposData={filterMov} searchRepo={search} />
         </div>
       </div>
     </div>
