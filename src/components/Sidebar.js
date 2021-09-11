@@ -1,47 +1,69 @@
 import React from "react";
 import "../style/sidebar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding } from "@fortawesome/free-regular-svg-icons";
 
-function Sidebar({ githubUsersOwner }) {
- 
-  githubUsersOwner.map( e => console.log(e.owner))
-  
-
-  //   for (let i = 0; i < 1 ; i++) {
-  //       element(githubUsersOwner[i])
-  //   }
-  //  function element(e){
-  //    console.log(e)
-  //  }
+function Sidebar({ githubUsersOwner, githubUsersOrgs }) {
   return (
     <div className="profile-card-container">
       <div className="profile-card">
         <figure>
           <div className="avatar">
-            <img src="https://avatars.githubusercontent.com/u/44482506?v=4" />
+            <img src={githubUsersOwner.avatar_url} />
           </div>
-          <p className="full-name">FullName</p>
+          <h1 className="full-name">
+            <p>{githubUsersOwner.name}</p>
+            <p> {githubUsersOwner.login} </p>
+          </h1>
         </figure>
         <div className="profile-edit">
-          <div className="bio">developer, tech lover, javascripter</div>
+          <div className="bio">{githubUsersOwner.bio}</div>
           <div>
-            <a href="#">
-              <span>37</span> follower
-            </a>
-            <a href="#">
-              <span>44</span> following
-            </a>
-            <a href="#">
-              <span>210</span> Star icon
-            </a>
+            <span>
+              {githubUsersOwner.followers} {` followers .`}
+            </span>
+            <span>
+              {``} {githubUsersOwner.following} {` following `}
+            </span>
           </div>
           <div className="card-detail">
             <ul>
-              <li>Wingie Enuygun Group</li>
-              <li>istanbul</li>
+              {githubUsersOwner.company && (
+                <li>
+                  <FontAwesomeIcon icon={faBuilding} />{" "}
+                  {githubUsersOwner.company}
+                </li>
+              )}
+              {githubUsersOwner.location && (
+                <li>
+                  <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
+                  {githubUsersOwner.location}
+                </li>
+              )}
             </ul>
           </div>
         </div>
-        <div>Organizations</div>
+        <div className="organizations">
+          <h4>Organizations</h4>
+          <div className="organization">
+            {githubUsersOrgs.map((orgs) => (
+              <div key={orgs.id} title={orgs.login}>
+                <img src={orgs.avatar_url} alt={orgs.description} />
+              </div>
+            ))}
+          </div>
+          <div>
+            <div>
+              {"updated at "}
+              {githubUsersOwner.updated_at}
+            </div>
+            <div>
+              {"created at "}
+              {githubUsersOwner.created_at}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
