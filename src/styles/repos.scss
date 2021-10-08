@@ -47,7 +47,7 @@ $g2: solid 1px rgb(207, 207, 207);
         align-items: center;
         margin: 3px 0;
 
-        a {
+        .topic {
           font-size: 13px;
           font-weight: 600;
           margin: 3px 0;
@@ -57,7 +57,7 @@ $g2: solid 1px rgb(207, 207, 207);
           border-radius: 20px;
           color: rgb(9, 105, 218);
         }
-        a:hover {
+        .topic:hover {
           background-color: rgb(9, 105, 218);
           color: white;
           user-select: none;

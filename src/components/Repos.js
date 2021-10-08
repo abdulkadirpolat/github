@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable array-callback-return */
 import React from "react";
 import "../styles/search.css";
 import "../styles/repos.css";
@@ -44,17 +46,18 @@ function Repos() {
         </Link>
       </form>
       <div style={{ padding: "5px" }}>
-        Public Repositories{" "}
+        Public Repositories
         <span
           style={{
-            backgroundColor: "gray",
+            backgroundColor: "#B8B8B8",
+            borderRadius: "5px",
             padding: "3px 5px",
             color: "white",
+            marginLeft: "5px",
           }}
         >
-          {" "}
           {github.length}
-        </span>{" "}
+        </span>
       </div>
       <div className="repobar">
         <ul>
@@ -63,6 +66,7 @@ function Repos() {
               <div className="repo">
                 <div className="project-bar">
                   <a
+                    rel="noreferrer"
                     className="project-name"
                     target="_blank"
                     href={user.html_url}
@@ -72,10 +76,20 @@ function Repos() {
                   <span>Public</span>
                 </div>
                 <div> {user.description}</div>
-                <div>{<a href="#">{user.name}</a>}</div>
+                {user.topics.length === 0 ? (
+                  ""
+                ) : (
+                  <div>
+                    {user.topics.map((topic, i) => (
+                      <a className="topic" href="#" key={i}>
+                        {topic}
+                      </a>
+                    ))}
+                  </div>
+                )}
                 <div>
                   <span>{user.language}</span>
-                  <a href="#" >
+                  <a href="#">
                     <FontAwesomeIcon icon={faStar} />
                     {` ${user.stargazers_count} `}
                   </a>

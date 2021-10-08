@@ -1,40 +1,39 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import axios from "axios";
 
+import instanse from "../axios";
 const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const [userName, setUserName] = useState(null);
+  const [userName, setUserName] = useState("");
   const [github, setGithubRepos] = useState([]);
   const [githubUser, setGithubUser] = useState([]);
   const [githubOrgs, setGithubOrgs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+ 
   useEffect(() => {
     const userGetItem = localStorage.getItem("user-name");
     if (userGetItem) setUserName(JSON.parse(userGetItem));
   }, []);
 
   useEffect(() => {
-    (async () => {
-      const responseRepos = await axios
-        .get(
-          `https://api.github.com/users/${userName}/repos?page=1&per_page=100`
-        )
-        .catch((err) => console.log(err))
-        .finally(setIsLoading(false));
+    if (userName) {
+      async function githubFetch() {
+        setIsLoading(true);
+        const responseRepos = await instanse
+          .get(`${userName}/repos?page=1&per_page=100`)
+          .catch(() => setUserName(""));
 
-      const responseUser = await axios.get(
-        `https://api.github.com/users/${userName}`
-      );
+        const responseUser = await instanse.get(`${userName}`);
 
-      const responseOrgs = await axios.get(
-        `https://api.github.com/users/${userName}/orgs`
-      );
-      setGithubRepos(responseRepos.data);
-      setGithubUser(responseUser.data);
-      setGithubOrgs(responseOrgs.data);
-    })();
+        const responseOrgs = await instanse.get(`${userName}/orgs`);
+        setGithubRepos(responseRepos.data);
+        setGithubUser(responseUser.data);
+        setGithubOrgs(responseOrgs.data);
+        setIsLoading(false);
+      }
+      githubFetch();
+      localStorage.setItem("user-name", JSON.stringify(userName));
+    }
   }, [userName]);
 
   const values = {

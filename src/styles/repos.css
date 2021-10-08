@@ -60,7 +60,7 @@
   margin: 3px 0;
 }
 
-.repos-container .repobar .repo :nth-of-type(3) a {
+.repos-container .repobar .repo :nth-of-type(3) .topic {
   font-size: 13px;
   font-weight: 600;
   margin: 3px 0;
@@ -71,7 +71,7 @@
   color: #0969da;
 }
 
-.repos-container .repobar .repo :nth-of-type(3) a:hover {
+.repos-container .repobar .repo :nth-of-type(3) .topic:hover {
   background-color: #0969da;
   color: white;
   -webkit-user-select: none;
