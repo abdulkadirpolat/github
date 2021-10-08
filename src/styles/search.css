@@ -1,4 +1,13 @@
 .repos-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px 0;
   outline: none;
   border-bottom: 1px solid #cfcfcf;
@@ -22,5 +31,12 @@
   border: 1.5px solid blue;
   -webkit-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
           box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.repos-search .go-back-btn {
+  padding: 5px 10px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=search.css.map */

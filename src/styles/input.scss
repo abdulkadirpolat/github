@@ -1,0 +1,37 @@
+@import "./media-query";
+
+// .repos-search {
+//   padding: 20px 0;
+//   outline: none;
+//   border-bottom: 1px solid rgb(207, 207, 207);
+//   #repository {
+//     width: 60%;
+//     padding: 6px 10px;
+//     border-radius: 7px;
+//     outline: none;
+//     border: solid rgb(207, 207, 207) 1.5px;
+//     // @include responsive(laptop) {
+//     //   width: 100%;
+//     // }
+//   }
+//   #repository:focus {
+//     border: 1.5px solid blue;
+//     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+//   }
+// }
+.input-container {
+    width: 350px;
+    padding:10px;
+    outline: none;
+    border: solid rgb(207, 207, 207) 1px;    
+     z-index: 10;
+     min-width: 250px;
+     @include responsive(phone) {
+      width: 50%;
+    }
+}
+.input-container:focus {
+      border: 1px solid rgb(34, 34, 34);
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+} 
+ 

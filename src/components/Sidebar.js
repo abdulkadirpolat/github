@@ -1,75 +1,80 @@
 import React from "react";
-import "../style/sidebar.css";
+import "../styles/sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapMarkerAlt,
+  faUserFriends,
+} from "@fortawesome/free-solid-svg-icons";
 import { faBuilding } from "@fortawesome/free-regular-svg-icons";
+import { useUser } from "../context/UserContext";
 
-function Sidebar({ githubUsersOwner, githubUsersOrgs }) {
+function Sidebar() {
+  const { githubUser, githubOrgs } = useUser();
   return (
     <div className="profile-card-container">
       <div className="profile-card">
         <figure>
           <div className="avatar">
-            <img src={githubUsersOwner.avatar_url} />
+            <img src={githubUser.avatar_url} alt="avatar img." />
           </div>
           <h1 className="full-name">
-            <p>{githubUsersOwner.name}</p>
-            <p> {githubUsersOwner.login} </p>
+            <p>{githubUser.name}</p>
+            <p> {githubUser.login} </p>
           </h1>
         </figure>
         <div className="profile-edit">
-          <div className="bio">{githubUsersOwner.bio}</div>
-          <div>
+          <div className="bio">{githubUser.bio}</div>
+          <div className="follow">
             <span>
-              {/* {githubUsersOwner.followers.length <=999 ? githubUsersOwner.followers :Number.parseFloat(githubUsersOwner.followers).toFixed(2) } {` followers .`} */}
-              {githubUsersOwner.followers} {` followers .`}
+              <FontAwesomeIcon icon={faUserFriends} />{" "}
+              {/* {githubUser.followers.length <=999 ? githubUser.followers :Number.parseFloat(githubUser.followers).toFixed(2) } {` followers .`} */}
+              {githubUser.followers} {` followers .`}
             </span>
             <span>
-              {``} {githubUsersOwner.following} {` following `}
+              {``} {githubUser.following} {` following `}
             </span>
           </div>
           <div className="card-detail">
             <ul>
-              {githubUsersOwner.company && (
+              {githubUser.company && (
                 <li>
-                  <FontAwesomeIcon icon={faBuilding} />{" "}
-                  {githubUsersOwner.company}
+                  <FontAwesomeIcon icon={faBuilding} /> {githubUser.company}
                 </li>
               )}
-              {githubUsersOwner.location && (
+              {githubUser.location && (
                 <li>
                   <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
-                  {githubUsersOwner.location}
+                  {githubUser.location}
                 </li>
               )}
             </ul>
           </div>
         </div>
         <div className="organizations">
-          <h4> {githubUsersOrgs.length == 0 ? null : "Organizations"} </h4>
+          <h4> {githubOrgs.length === 0 ? null : "Organizations"} </h4>
           <div className="organization">
-            {githubUsersOrgs.length == 0
+            {githubOrgs.length === 0
               ? null
-              : githubUsersOrgs.map((orgs) => (
+              : githubOrgs.map((orgs) => (
                   <div key={orgs.id} title={orgs.login}>
                     <img src={orgs.avatar_url} alt={orgs.description} />
                   </div>
                 ))}
           </div>
-          <div>
+          <div className="times">
             <div>
               {"updated at "}
-              {/* {githubUsersOwner.updated_at == undefined
-                ? async () => await githubUsersOwner.updated_at.slice(0, 10)
-                : githubUsersOwner.updated_at.slice(0, 10)} */}
-              {githubUsersOwner.updated_at}
+              {githubUser.updated_at === undefined
+                ? async () => await githubUser.updated_at.slice(0, 10)
+                : githubUser.updated_at.slice(0, 10)}
+            
             </div>
             <div>
               {"created at "}
-              {/* {githubUsersOwner.created_at == undefined
-                ? async () => await githubUsersOwner.created_at.slice(0, 10)
-                : githubUsersOwner.created_at.slice(0, 10)} */}
-              {githubUsersOwner.created_at}
+              {githubUser.created_at === undefined
+                ? async () => await githubUser.created_at.slice(0, 10)
+                : githubUser.created_at.slice(0, 10)}
+            
             </div>
           </div>
         </div>

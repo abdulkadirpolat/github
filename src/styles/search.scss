@@ -1,6 +1,9 @@
 @import "./media-query";
 
 .repos-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px 0;
   outline: none;
   border-bottom: 1px solid rgb(207, 207, 207);
@@ -17,5 +20,12 @@
   #repository:focus {
     border: 1.5px solid blue;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+  .go-back-btn {
+    padding: 5px 10px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 10px;
+   
   }
 }

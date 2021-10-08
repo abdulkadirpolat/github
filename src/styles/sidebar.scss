@@ -42,6 +42,10 @@ $f1: 14px;
         font-size: 14px;
         margin-bottom: 16px;
       }
+      .follow {
+        font-size: 14px;
+      }
+
       .card-detail {
         margin-top: 16px;
         ul > li > svg {
@@ -79,6 +83,10 @@ $f1: 14px;
           object-fit: cover;
           object-position: center;
         }
+      }
+      .times {
+        color: $g1;
+        font-size: 14px;
       }
     }
   }

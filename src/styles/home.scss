@@ -1,0 +1,84 @@
+@import "./media-query";
+
+.home {
+    min-height: 100vh;
+    width: 100%;
+    background-color:#040d21 ;
+    position: relative;
+    overflow: hidden;
+   
+    .home-user-input {
+  z-index: 10;
+  position: absolute;
+  transform: translate(50%,50%);
+  right: 50%;
+  top: 45%;
+    }
+    .home-images {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+        .hero-glow {
+            width: 200%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 2;         
+        }
+        .globe-logo {           
+          display: flex;
+           justify-content: center;
+           align-items: center;
+           animation: rotate 30s infinite alternate-reverse;
+            height: 100vh;     
+            margin: 0 auto;                
+            z-index:10;
+         
+       img {
+        max-height:750px;
+        width: auto;     
+        height: 100vh;
+       }
+       
+        }
+        .astro-mona {
+          position: absolute; 
+          bottom: -35%;
+          right: 0;      
+          height: 100vh;
+          width: 100vw;
+          max-width: 460px; 
+          z-index: 5;   
+          @include responsive(laptop) {
+           
+            transform: translateX(20%);
+          }     
+          @include responsive(phone) {
+            right: -50px;         
+          }  
+        }
+    }
+ 
+    @keyframes rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+//   .animating-bg {
+//     width: 100vw;
+//     height: 100vh;
+//     background-image: url(/images/bg.png);
+//     background-size: cover;
+//     overflow: hidden;
+//     position: absolute;
+//     z-index: 1;
+//     top: 0;
+//     left: 0;
+//     animation: 10s hue infinite alternate;
+//   }
+}
