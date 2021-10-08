@@ -1,0 +1,24 @@
+.error {
+    background-color: gray;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .error404 {
+    font-size: 150px;
+  }
+  .error_info {
+    font-size: 50px;
+  }
+  .error_back {
+    background-color: #68b7ff;
+    border-radius: 50px;
+    color: white;
+    padding: 10px 8px;
+    outline: none;
+    border: none;
+   text-decoration: none;
+  }
