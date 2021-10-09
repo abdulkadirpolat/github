@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable array-callback-return */
-import React from "react";
+import { useState } from "react";
 import "../styles/search.css";
 import "../styles/repos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
-import { useState } from "react/cjs/react.development";
 import { useUser } from "../context/UserContext";
 import { Link } from "react-router-dom";
 
