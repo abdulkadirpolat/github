@@ -1,14 +1,17 @@
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+  Redirect
 } from "react-router-dom";
 import { useUser } from "./context/UserContext";
 import Error from "./pages/error/Error";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+
+ 
+
 function Routes() {
   const { userName } = useUser();
 
@@ -16,13 +19,12 @@ function Routes() {
     <Router>
       <Switch>
         <Route path="/" exact component={Home} />
-
+        <Route path="/:user" exact component={Profile} />
         {userName ? (
-          <Route exact path={`/:${userName}`} component={Profile} />
+          <Route exact path={`/${userName}`} component={Profile} />
         ) : (
-          <Redirect exact to="/" />
-        )}
-
+          <Redirect to="/" />
+        )} 
         <Route path="*" component={Error} />
       </Switch>
     </Router>

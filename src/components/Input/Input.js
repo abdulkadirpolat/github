@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/input.css";
-import PropTypes  from "prop-types";
+import PropTypes from "prop-types";
 function Input({
   className,
   type,
@@ -39,13 +39,23 @@ function Input({
 }
 
 Input.propsTypes = {
-  text: PropTypes.string,
-  placeholder: PropTypes.string,
+  className: PropTypes.string,
   type: PropTypes.string,
+  placeholder: PropTypes.string,
+  text: PropTypes.string,
+  size: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  width: PropTypes.string,
+  height: PropTypes.string,
+  radius: PropTypes.string,
+  padding: PropTypes.string,
+  margin: PropTypes.string,
+  onChange: PropTypes.func,
+  onsubmit: PropTypes.func,
 };
 Input.defaultProps = {
   text: "Search",
+  placeholder: "Input",
 };
 
 export default Input;

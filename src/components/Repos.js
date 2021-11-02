@@ -7,10 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { useUser } from "../context/UserContext";
 import { Link } from "react-router-dom";
+import {Input} from "./index";
 
 function Repos() {
   const [reposFilter, setReposFilter] = useState("");
-  const { github, setUserName } = useUser();
+  const { github, setUserName, githubUser  } = useUser();
   const formSubmit = (event) => {
     event.preventDefault();
   };
@@ -27,7 +28,7 @@ function Repos() {
   return (
     <div className="repos-container">
       <form onSubmit={formSubmit} className="repos-search">
-        <input
+        <Input
           onChange={(e) => setReposFilter(e.target.value.trim())}
           id="repository"
           type="text"
@@ -36,8 +37,8 @@ function Repos() {
         <Link
           className="go-back-btn"
           onClick={() => {
-            setUserName(null);
-            localStorage.removeItem("user-name");
+            setUserName("");
+            // localStorage.removeItem("user-name");
           }}
           to="/"
         >
@@ -55,7 +56,7 @@ function Repos() {
             marginLeft: "5px",
           }}
         >
-          {github.length}
+          {githubUser.public_repos}
         </span>
       </div>
       <div className="repobar">

@@ -67,14 +67,12 @@ function Sidebar() {
               {githubUser.updated_at === undefined
                 ? async () => await githubUser.updated_at.slice(0, 10)
                 : githubUser.updated_at.slice(0, 10)}
-            
             </div>
             <div>
               {"created at "}
               {githubUser.created_at === undefined
                 ? async () => await githubUser.created_at.slice(0, 10)
                 : githubUser.created_at.slice(0, 10)}
-            
             </div>
           </div>
         </div>

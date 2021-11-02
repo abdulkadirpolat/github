@@ -1,5 +1,5 @@
 import { useContext, createContext, useState, useEffect } from "react";
-
+ 
 import instanse from "../axios";
 const UserContext = createContext();
 
@@ -9,22 +9,20 @@ function UserProvider({ children }) {
   const [githubUser, setGithubUser] = useState([]);
   const [githubOrgs, setGithubOrgs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
- 
-  useEffect(() => {
-    const userGetItem = localStorage.getItem("user-name");
-    if (userGetItem) setUserName(JSON.parse(userGetItem));
-  }, []);
+const [error, setError] = useState()
 
   useEffect(() => {
-    if (userName) {
+    if (userName ) {
       async function githubFetch() {
         setIsLoading(true);
         const responseRepos = await instanse
           .get(`${userName}/repos?page=1&per_page=100`)
-          .catch(() => setUserName(""));
+          .catch((error ) =>{ 
+          setError(error)
+          setIsLoading(false)
+          }) 
 
         const responseUser = await instanse.get(`${userName}`);
-
         const responseOrgs = await instanse.get(`${userName}/orgs`);
         setGithubRepos(responseRepos.data);
         setGithubUser(responseUser.data);
@@ -32,7 +30,6 @@ function UserProvider({ children }) {
         setIsLoading(false);
       }
       githubFetch();
-      localStorage.setItem("user-name", JSON.stringify(userName));
     }
   }, [userName]);
 
@@ -47,6 +44,7 @@ function UserProvider({ children }) {
     setGithubOrgs,
     isLoading,
     setIsLoading,
+    error
   };
 
   return (
